@@ -7,6 +7,7 @@ public class Tributo {
     private String ubicacion;
     private int calificacion;
     
+    
     public void banoSangre(){
 
     }
