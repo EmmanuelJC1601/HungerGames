@@ -11,6 +11,22 @@ public class Vigilante {
     public void mutos(){
 
     }
+
+    public void incendio(){
+
+    }
+
+    public void tormenta(){
+
+    }
+    
+    public void nieblaAcida(){
+
+    }
+
+    public void lluviaSangre(){
+        
+    }
     
 }
 

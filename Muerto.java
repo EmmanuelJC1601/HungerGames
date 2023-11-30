@@ -1,4 +1,4 @@
-public class Normal implements State{
+public class Muerto implements State{
     private Tributo jugador;
     
     public void atacar() {
@@ -24,7 +24,7 @@ public class Normal implements State{
     public void morir() {
         
     }
-
+    
     public void setTributo(Tributo jugador){
         this.jugador = jugador;
     }
