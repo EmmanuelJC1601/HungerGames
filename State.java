@@ -1,4 +1,3 @@
-
 public interface State {
 
     public void atacar();

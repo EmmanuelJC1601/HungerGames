@@ -1,30 +1,25 @@
-public class Tributo {
-    private String nombre;
-    private String genero;
+public class Tributo extends NameTributos{
+
     private State estado;
     private double vida;
     private double hambre;
     private double sed;
-    private String distrito;
     // private String arma;
     // private String ubicacion;
     // private int calificacion;
 
     // Constructor
-    public Tributo(String nombre, String genero, double vida, double hambre, double sed, String distrito) {
-        this.nombre = nombre;
-        this.genero = genero;
+    public Tributo(String nombre, String genero, String distrito, double vida, double hambre, double sed) {
+        super(nombre, genero, distrito);
         this.vida = vida;
         this.hambre = hambre;
         this.sed = sed;
-        this.distrito = distrito;
-        setState(new Normal());
     }
 
     //Patron de diseño state
-    public Tributo(){
-        setState(new Normal());
-    }
+    // public Tributo(){
+    //     setState(new Normal());
+    // }
 
     public void setState(State estado){
         this.estado = estado;
@@ -32,22 +27,6 @@ public class Tributo {
     }
 
     // Getters and Setters
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
     public double getVida() {
         return vida;
     }
@@ -70,14 +49,6 @@ public class Tributo {
 
     public void setSed(double sed) {
         this.sed = sed;
-    }
-
-    public String getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(String distrito) {
-        this.distrito = distrito;
     }
 
     // Métodos

@@ -1,4 +1,5 @@
 public class Dormido implements State{
+
     private Tributo jugador;
     
     public void atacar() {

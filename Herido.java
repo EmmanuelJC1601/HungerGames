@@ -1,4 +1,5 @@
 public class Herido implements State{
+    
     private Tributo jugador;
     
     public void atacar() {
