@@ -10,7 +10,7 @@ public class Vigilante {
         Random num = new Random();
         int numeroJuegos = num.nextInt(31) + 50; // Números aleatorios entre 50 y 80
         System.out.printf("\nBienvenido a los %d° juegos del hambre\n", numeroJuegos);
-        System.out.println("En este día más de cien mil espectadores y patrocinadores se han reunido con tal de solo ver a los tributos\n");
+        System.out.println("En este día más de cien mil espectadores y patrocinadores se han reunido con tal de ver solo a los tributos\n");
         NameTributos.verArchContenido("TributosM.poo", "TributosF.poo");
         System.out.println("Les deseamos felices juegos del hambre y que la suerte esté siempre de su lado\n");
     }

@@ -1,15 +1,15 @@
 public class Tributo extends NameTributos{
 
     private State estado;
-    private double vida;
-    private double hambre;
-    private double sed;
+    private int vida;
+    private int hambre;
+    private int sed;
     // private String arma;
     // private String ubicacion;
     // private int calificacion;
 
     // Constructor
-    public Tributo(String nombre, String genero, String distrito, double vida, double hambre, double sed) {
+    public Tributo(String nombre, String genero, String distrito, int vida, int hambre, int sed) {
         super(nombre, genero, distrito);
         this.vida = vida;
         this.hambre = hambre;
@@ -27,27 +27,27 @@ public class Tributo extends NameTributos{
     }
 
     // Getters and Setters
-    public double getVida() {
+    public int getVida() {
         return vida;
     }
 
-    public void setVida(double vida) {
+    public void setVida(int vida) {
         this.vida = vida;
     }
 
-    public double getHambre() {
+    public int getHambre() {
         return hambre;
     }
 
-    public void setHambre(double hambre) {
+    public void setHambre(int hambre) {
         this.hambre = hambre;
     }
 
-    public double getSed() {
+    public int getSed() {
         return sed;
     }
 
-    public void setSed(double sed) {
+    public void setSed(int sed) {
         this.sed = sed;
     }
 
