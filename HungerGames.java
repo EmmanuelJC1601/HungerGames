@@ -1,12 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class HungerGames {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        NameTributos.crearTributos();
+        //NameTributos.crearTributos();
         Vigilante laCosecha = new Vigilante();
         laCosecha.cosecha();
+        Map<String, ArrayList<String>> listasTributos = laCosecha.cosecha();
+
+        ArrayList<String> mujeres = listasTributos.get("mujeres");
+        ArrayList<String> hombres = listasTributos.get("hombres");
 
         int opcion = 0;
 
@@ -44,12 +48,10 @@ public class HungerGames {
     }
 
     private static void serEspectador() {
-        // Implementa la lógica del espectador según sea necesario
         System.out.println("Eres un espectador. ¡Disfruta de los juegos!");
     }
 
     private static void serVigilante() {
-        // Implementa la lógica del vigilante según sea necesario
         System.out.println("Eres un vigilante. ¡Controla los juegos!");
     }
 }
