@@ -3,7 +3,7 @@ public class Tributo {
     private State estado;
     private String nombre;
     private String genero;
-    private String distrito;
+    private int distrito;
     private int vida;
     private int hambre;
     private int sed;
@@ -11,8 +11,14 @@ public class Tributo {
     // private String ubicacion;
     // private int calificacion;
 
+    //Constructor implementando Abstract Factory
+    public Tributo(TributoFactory factory, String nombre, String genero, int distrito, int vida, int hambre, int sed) {
+        this.estado = new Normal();           
+        Tributo nuevoTributo = factory.crearTributo(nombre, genero, distrito, vida, hambre, sed);
+    }  
+
     // Constructor
-    public Tributo(String nombre, String genero, String distrito, int vida, int hambre, int sed) {
+    public Tributo(String nombre, String genero, int distrito, int vida, int hambre, int sed) {
         this.nombre = nombre;
         this.genero = genero;
         this.distrito = distrito;
@@ -22,10 +28,9 @@ public class Tributo {
     }
 
     //Patron de diseño state
-
-    public Tributo(){
+    /*public Tributo(){
         setState(new Normal());
-    }
+    }*/
 
     public void setState(State estado){
         this.estado = estado;
@@ -41,7 +46,7 @@ public class Tributo {
         return genero;
     }
 
-    public String getDistrito() {
+    public int getDistrito() {
         return distrito;
     }
 
@@ -77,7 +82,7 @@ public class Tributo {
         this.genero = genero;
     }
 
-    public void setDistrito(String distrito) {
+    public void setDistrito(int distrito) {
         this.distrito = distrito;
     }
 

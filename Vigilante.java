@@ -9,9 +9,9 @@ import java.util.Random;
 
 public class Vigilante {
 
-    public void iniciarEvento() {
+    /*public void iniciarEvento() {
         // Implementación según sea necesario
-    }
+    }*/
 
     public Map<String, ArrayList<String>> cosecha() {
         Map<String, ArrayList<String>> tributosGenero = new HashMap<>();
@@ -24,13 +24,13 @@ public class Vigilante {
 
         int distrito = 1;
 
+        System.out.println("-- Iniciando cosecha --");
         for (int i = 0; i < 13; i++) {
 
             Random random = new Random();
             int num = random.nextInt(0, 12 - i);
 
-            System.out.println("-- Iniciando cosecha --");
-            System.out.println("-- Distrito: " + distrito + " --");
+            System.out.println("\n-- Distrito: " + distrito + " --");
             
             String mujer = mujeres.get(num);
             System.out.println("Mujer: " + mujer);
@@ -58,7 +58,6 @@ public class Vigilante {
         }
         return tributos;
     }
-
         /*Random num = new Random();
         int numeroJuegos = num.nextInt(31) + 50; // Números aleatorios entre 50 y 80
         System.out.printf("\nBienvenido a los %d° juegos del hambre\n", numeroJuegos);
