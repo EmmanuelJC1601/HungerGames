@@ -1,4 +1,4 @@
-import java.io.*;
+/*import java.io.*;
 import java.util.*;
 
 public class NameTributos implements Serializable{
@@ -145,6 +145,6 @@ public class NameTributos implements Serializable{
         guardarArchivoContenido(Masculino, "TributosM.poo");
         guardarArchivoContenido(Femenino, "TributosF.poo");
     }
-}
+}*/
 
 
