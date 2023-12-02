@@ -17,14 +17,13 @@ public class Vigilante {
         Map<String, ArrayList<String>> tributosGenero = new HashMap<>();
         List<String> mujeres = leerNombresArchivo("nombresMujeres.txt");
         List<String> hombres = leerNombresArchivo("nombresHombres.txt");
-        ArrayList<String> nombreMujeres = new ArrayList<>(mujeres);
-        ArrayList<String> nombreHombres = new ArrayList<>(hombres);
-        tributosGenero.put("mujeres", nombreMujeres);
-        tributosGenero.put("hombres", nombreHombres);
+        ArrayList<String> nombreMujeres = new ArrayList<>();
+        ArrayList<String> nombreHombres = new ArrayList<>();
 
         int distrito = 1;
 
         System.out.println("-- Iniciando cosecha --");
+
         for (int i = 0; i < 13; i++) {
 
             Random random = new Random();
@@ -33,15 +32,20 @@ public class Vigilante {
             System.out.println("\n-- Distrito: " + distrito + " --");
             
             String mujer = mujeres.get(num);
+            nombreMujeres.add(mujer);
             System.out.println("Mujer: " + mujer);
             mujeres.remove(num);
 
             String hombre = hombres.get(num);
+            nombreHombres.add(hombre);
             System.out.println("Hombre: " + hombre);
             hombres.remove(num);
 
             distrito++;
         }
+        
+        tributosGenero.put("mujeres", nombreMujeres);
+        tributosGenero.put("hombres", nombreHombres);
         return tributosGenero;
     }
 

@@ -7,8 +7,8 @@ public class HungerGames {
         //NameTributos.crearTributos();
         Vigilante laCosecha = new Vigilante();
         laCosecha.cosecha();
-        Map<String, ArrayList<String>> listasTributos = laCosecha.cosecha();
 
+        Map<String, ArrayList<String>> listasTributos = laCosecha.cosecha();
         ArrayList<String> mujeres = listasTributos.get("mujeres");
         ArrayList<String> hombres = listasTributos.get("hombres");
 
@@ -17,14 +17,22 @@ public class HungerGames {
         // Itera sobre la lista de nombres de mujeres y crea objetos Tributo
         for (String nombreMujer : mujeres) {
             int i = 1;
-            Tributo tributoMujer = new Tributo(tributoFactory, nombreMujer, "Femenino", i, 3, 0, 0);
+            if(i==1 || i ==2 || i==4){
+                Profesional profesional = tributoFactory.crearProfesional(nombreMujer, "Femenino", i, 100, 0, 0);
+            }else{
+                Tributo tributoMujer = tributoFactory.crearTributo(nombreMujer, "Femenino", i, 3, 0, 0);
+            }
             i++;
         }
 
         // Itera sobre la lista de nombres de hombres y crea objetos Tributo
         for (String nombreHombre : hombres) {
             int i = 1;
-            Tributo tributoHombre = new Tributo(tributoFactory, nombreHombre, "Masculino", i, 3, 0, 0);
+            if(i==1 || i ==2 || i==4){
+                Profesional profesional = tributoFactory.crearProfesional(nombreHombre, "Masculino", i, 3, 0, 0);
+            }else{
+                Tributo tributoHombre = tributoFactory.crearTributo(nombreHombre, "Masculino", i, 3, 0, 0);
+            }
             i++;
         }
 
