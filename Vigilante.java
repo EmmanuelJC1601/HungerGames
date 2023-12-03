@@ -3,12 +3,14 @@ import java.util.*;
 
 public class Vigilante {
 
-    public Map<String, ArrayList<String>> cosecha() {
-        Map<String, ArrayList<String>> tributosGenero = new HashMap<>();
+    public ArrayList<Tributo> cosecha() {
         List<String> mujeres = leerNombresArchivo("nombresMujeres.txt");
         List<String> hombres = leerNombresArchivo("nombresHombres.txt");
         ArrayList<String> nombreMujeres = new ArrayList<>();
         ArrayList<String> nombreHombres = new ArrayList<>();
+
+        ArrayList<Tributo> hunger_games = new ArrayList<Tributo>();
+        TributoFactoryImplements tributoFactory = new TributoFactoryImplements();
 
         Random random = new Random();
 
@@ -31,11 +33,20 @@ public class Vigilante {
             System.out.println(" y a " + hombre + "\n");
             //System.out.println("Hombre: " + hombre);
             hombres.remove(num);
-        }
 
-        tributosGenero.put("mujeres", nombreMujeres);
-        tributosGenero.put("hombres", nombreHombres);
-        return tributosGenero;
+            if(i==1 || i ==2 || i==4){
+                Profesional profesional_F = tributoFactory.crearProfesional(mujer, "Femenino", i, 100, 0, 0);
+                Profesional profesional_M = tributoFactory.crearProfesional(hombre, "Masculino", i, 3, 0, 0);
+                hunger_games.add(profesional_F);
+                hunger_games.add(profesional_M);
+            }else{
+                Tributo tributoMujer = tributoFactory.crearTributo(mujer, "Femenino", i, 3, 0, 0);
+                Tributo tributoHombre = tributoFactory.crearTributo(hombre, "Masculino", i, 3, 0, 0);
+                hunger_games.add(tributoMujer);
+                hunger_games.add(tributoHombre);
+            }
+        }
+        return hunger_games;
     }
 
     // Método para leer nombres desde un archivo y almacenarlos en una lista

@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Tributo {
 
     private State estado;
@@ -7,6 +9,7 @@ public class Tributo {
     private int vida;
     private int hambre;
     private int sed;
+
     // private String arma;
     // private String ubicacion;
     // private int calificacion;
