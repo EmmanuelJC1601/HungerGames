@@ -7,7 +7,7 @@ public class Hambriento implements State{
     }
 
     public void comer() {
-        
+        //bayas venenosas
     }
 
     public void curarse() {

@@ -37,7 +37,8 @@ public class Herido implements State{
     }
 
     public void morir() {
-        
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " fue picado por rastrevíspulas. Falleció");
+        jugador.setState(new Muerto());
     }
     
     public void setTributo(Tributo jugador){
