@@ -3,22 +3,20 @@ import java.util.TimerTask;
 
 public class Dormido implements State{
 
-    private Tributo jugador;
+    public Tributo jugador;
     
     public void atacar() {
-        
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " fue asesinado por los profesionales mientras dormía");
+        jugador.setState(new Hambriento());
     }
 
-    public void comer() {
-        
+    public void comer() {     
     }
 
     public void curarse() {
-        
     }
 
     public void defenderse() {
-        
     }
 
     public void escapar() {

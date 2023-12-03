@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Herido implements State{
     
-    private Tributo jugador;
+    public Tributo jugador;
     Random random = new Random();
     
     public void atacar() {
@@ -13,7 +13,7 @@ public class Herido implements State{
                 if(num==1){
                     System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha ganado la batalla");
                 }else{
-
+                    
                 }
             } else {
                 

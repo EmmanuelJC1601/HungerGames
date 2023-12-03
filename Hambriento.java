@@ -1,6 +1,6 @@
 public class Hambriento implements State{
     
-    private Tributo jugador;
+    public Tributo jugador;
     
     public void atacar() {
         

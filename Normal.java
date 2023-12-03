@@ -1,12 +1,8 @@
 import java.util.*;
 
 public class Normal implements State{
-    private Tributo jugador;
+    public Tributo jugador;
     Random random = new Random();
-
-    //obtenerListaTributosDesdeElMain
-    //ArrayList<Tributo> listaTributos = HungerGames.listaTributos;
-
 
     public void atacar() {
         System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " se encontro con otro tributo");
@@ -27,6 +23,7 @@ public class Normal implements State{
             } else {
                 if(num==1){
                     System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha ganado la batalla");
+                }else{
                     System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha muerto en batalla");
                     jugador.setState(new Muerto());
                 }
@@ -34,11 +31,24 @@ public class Normal implements State{
     }
 
     public void comer() {
-        
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " está buscando comida");
+        jugador.setState(new Hambriento());
     }
 
     public void curarse() {
-        
+        int num = random.nextInt(2) + 1;
+
+        if (jugador instanceof Profesional) {
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " tuvo un accidente");     
+
+        } else {
+            if(num==1){
+                System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha ganado la batalla");
+            }else{
+                System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha muerto en batalla");
+                jugador.setState(new Muerto());
+            }
+        }
     }
 
     public void defenderse() {
