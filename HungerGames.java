@@ -16,7 +16,6 @@ public class HungerGames {
         System.out.println("como se irá desarollandose los juegos.");
 
         try {
-            Thread.sleep(5000);
             do {
                 Random random = new Random();
                 int n_tri = random.nextInt(juegos_del_hambre.size());
@@ -37,15 +36,18 @@ public class HungerGames {
                         juegos_del_hambre.remove(n_tri);
                     }
                 }
-                juegos_del_hambre.remove(n_tri);
-
+                Thread.sleep(5000);
                 
             } while (juegos_del_hambre.size() != 1);
             
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            //e.printStackTrace();
         }
+
+
+        // NO EJECUTAR TODAVÍA
+
 
         // do {
             

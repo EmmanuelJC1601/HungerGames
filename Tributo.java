@@ -90,47 +90,31 @@ public class Tributo {
         int num_evento = evento.nextInt(1,6);
         
         switch (num_evento) {
-            case 1:
+            case 1: // atacar
+                estado.atacar();
+                break;
+
+            case 2: // comer
+                estado.comer();
+                break;
+
+            case 3: // curarse
+                if(estado instanceof Normal){
+                    System.out.println("Tiene la salud máxima");
+                }else{
+                    System.out.println("Se está recuperando");
+                }
+                break;
+
+            case 4: // defenderse
                 
                 break;
 
-            case 2:
-                
-                break;
-
-            case 3:
-                
-                break;
-
-            case 4:
-                
-                break;
-
-            case 5:
+            case 5: //escapar
                 
                 break;
         }
 
-    }
-
-    public void atacar() {
-        this.estado.atacar();
-    }
-
-    public void comer() {
-        this.estado.comer();
-    }
-
-    public void curarse() {
-        this.estado.curarse();
-    }
-
-    public void defenderse() {
-        this.estado.defenderse();
-    }
-
-    public void escapar() {
-        this.estado.escapar();
     }
 }
 
