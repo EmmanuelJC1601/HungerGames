@@ -88,27 +88,27 @@ public class Tributo {
 
     // Métodos
     public void atacar() {
-        
+        this.estado.atacar();
     }
 
     public void comer() {
-        
+        this.estado.comer();
     }
 
     public void curarse() {
-        
+        this.estado.curarse();
     }
 
     public void defenderse() {
-        
+        this.estado.defenderse();
     }
 
     public void escapar() {
-        
+        this.estado.escapar();
     }
 
     public void morir() {
-        
+        this.estado.morir();
     }
 }
 

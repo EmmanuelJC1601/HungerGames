@@ -9,10 +9,6 @@ import java.util.Random;
 
 public class Vigilante {
 
-    /*public void iniciarEvento() {
-        // Implementación según sea necesario
-    }*/
-
     public Map<String, ArrayList<String>> cosecha() {
         Map<String, ArrayList<String>> tributosGenero = new HashMap<>();
         List<String> mujeres = leerNombresArchivo("nombresMujeres.txt");
@@ -21,15 +17,14 @@ public class Vigilante {
         ArrayList<String> nombreHombres = new ArrayList<>();
 
         int distrito = 1;
+        Random random = new Random();
 
         System.out.println("-- Iniciando cosecha --");
 
-        for (int i = 0; i < 13; i++) {
+        for (int i = 1; i < 13; i++) {
+            int num = random.nextInt(13 - i);
 
-            Random random = new Random();
-            int num = random.nextInt(0, 12 - i);
-
-            System.out.println("\n-- Distrito: " + distrito + " --");
+            System.out.println("\n-- Distrito: " + i + " --");
             
             String mujer = mujeres.get(num);
             nombreMujeres.add(mujer);
@@ -43,7 +38,7 @@ public class Vigilante {
 
             distrito++;
         }
-        
+
         tributosGenero.put("mujeres", nombreMujeres);
         tributosGenero.put("hombres", nombreHombres);
         return tributosGenero;
