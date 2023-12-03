@@ -16,6 +16,10 @@ public class Vigilante {
 
         System.out.println("\n<---><---><---><---| Iniciando la Cosecha |---><---><---><--->\n");
 
+        int numeroJuegos = random.nextInt(31) + 50; // Números aleatorios entre 50 y 80
+        System.out.printf("... .... ... Bienvenido a los %d° juegos del hambre ... .... ...\n", numeroJuegos);
+        System.out.println("\nEn este día más de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
+
         for (int i = 1; i < 13; i++) {
             int num = random.nextInt(13 - i);
 
@@ -46,6 +50,8 @@ public class Vigilante {
                 hunger_games.add(tributoHombre);
             }
         }
+        System.out.println("Les deseamos felices juegos del hambre y que la suerte esté siempre de su lado\n");
+
         return hunger_games;
     }
 
@@ -62,12 +68,6 @@ public class Vigilante {
         }
         return tributos;
     }
-        /*Random num = new Random();
-        int numeroJuegos = num.nextInt(31) + 50; // Números aleatorios entre 50 y 80
-        System.out.printf("\nBienvenido a los %d° juegos del hambre\n", numeroJuegos);
-        System.out.println("En este día más de cien mil espectadores y patrocinadores se han reunido con tal de ver solo a los tributos\n");
-        NameTributos.verArchContenido("TributosM.poo", "TributosF.poo");
-        System.out.println("Les deseamos felices juegos del hambre y que la suerte esté siempre de su lado\n");*/
 
     public void donacion() {
         // Implementación según sea necesario

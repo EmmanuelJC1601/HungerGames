@@ -14,12 +14,6 @@ public class Tributo {
     // private String ubicacion;
     // private int calificacion;
 
-    //Constructor implementando Abstract Factory
-    /*public Tributo(TributoFactory factory, String nombre, String genero, int distrito, int vida, int hambre, int sed) {          
-        Tributo nuevoTributo = factory.crearTributo(nombre, genero, distrito, vida, hambre, sed);
-        this.estado = new Normal(); 
-    }*/ 
-
     // Constructor
     public Tributo(String nombre, String genero, int distrito, int vida, int hambre, int sed) {
         this.nombre = nombre;
@@ -28,14 +22,10 @@ public class Tributo {
         this.vida = vida;
         this.hambre = hambre;
         this.sed = sed;
-
-    }
-
-    //Patron de diseño state
-    public Tributo(){
         setState(new Normal());
     }
 
+    //Patron de diseño state
     public void setState(State estado){
         this.estado = estado;
         this.estado.setTributo(this);
@@ -78,19 +68,51 @@ public class Tributo {
         this.sed = sed;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public State getState(){
+        return this.estado;
+    } 
 
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+    // public void setNombre(String nombre) {
+    //     this.nombre = nombre;
+    // }
 
-    public void setDistrito(int distrito) {
-        this.distrito = distrito;
-    }
+    // public void setGenero(String genero) {
+    //     this.genero = genero;
+    // }
+
+    // public void setDistrito(int distrito) {
+    //     this.distrito = distrito;
+    // }
 
     // Métodos
+    public void seleccionarEvento(){
+        // Random evento = new Random(123);
+        // int num_evento = evento.nextInt(1,6);
+        
+        // switch (num_evento) {
+        //     case 1:
+                
+        //         break;
+
+        //     case 2:
+                
+        //         break;
+
+        //     case 3:
+                
+        //         break;
+
+        //     case 4:
+                
+        //         break;
+
+        //     case 5:
+                
+        //         break;
+        // }
+
+    }
+
     public void atacar() {
         this.estado.atacar();
     }
@@ -109,10 +131,6 @@ public class Tributo {
 
     public void escapar() {
         this.estado.escapar();
-    }
-
-    public void morir() {
-        this.estado.morir();
     }
 }
 
