@@ -86,30 +86,30 @@ public class Tributo {
 
     // Métodos
     public void seleccionarEvento(){
-        // Random evento = new Random(123);
-        // int num_evento = evento.nextInt(1,6);
+        Random evento = new Random(123);
+        int num_evento = evento.nextInt(1,6);
         
-        // switch (num_evento) {
-        //     case 1:
+        switch (num_evento) {
+            case 1:
                 
-        //         break;
+                break;
 
-        //     case 2:
+            case 2:
                 
-        //         break;
+                break;
 
-        //     case 3:
+            case 3:
                 
-        //         break;
+                break;
 
-        //     case 4:
+            case 4:
                 
-        //         break;
+                break;
 
-        //     case 5:
+            case 5:
                 
-        //         break;
-        // }
+                break;
+        }
 
     }
 
