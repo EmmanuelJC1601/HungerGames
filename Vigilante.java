@@ -1,11 +1,5 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.io.*;
+import java.util.*;
 
 public class Vigilante {
 
@@ -16,7 +10,6 @@ public class Vigilante {
         ArrayList<String> nombreMujeres = new ArrayList<>();
         ArrayList<String> nombreHombres = new ArrayList<>();
 
-        int distrito = 1;
         Random random = new Random();
 
         System.out.println("-- Iniciando cosecha --");
@@ -36,7 +29,6 @@ public class Vigilante {
             System.out.println("Hombre: " + hombre);
             hombres.remove(num);
 
-            distrito++;
         }
 
         tributosGenero.put("mujeres", nombreMujeres);

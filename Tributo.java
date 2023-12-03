@@ -12,10 +12,10 @@ public class Tributo {
     // private int calificacion;
 
     //Constructor implementando Abstract Factory
-    public Tributo(TributoFactory factory, String nombre, String genero, int distrito, int vida, int hambre, int sed) {
-        this.estado = new Normal();           
+    /*public Tributo(TributoFactory factory, String nombre, String genero, int distrito, int vida, int hambre, int sed) {          
         Tributo nuevoTributo = factory.crearTributo(nombre, genero, distrito, vida, hambre, sed);
-    }  
+        this.estado = new Normal(); 
+    }*/ 
 
     // Constructor
     public Tributo(String nombre, String genero, int distrito, int vida, int hambre, int sed) {
@@ -25,12 +25,13 @@ public class Tributo {
         this.vida = vida;
         this.hambre = hambre;
         this.sed = sed;
+
     }
 
     //Patron de diseño state
-    /*public Tributo(){
+    public Tributo(){
         setState(new Normal());
-    }*/
+    }
 
     public void setState(State estado){
         this.estado = estado;

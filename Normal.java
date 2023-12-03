@@ -5,17 +5,16 @@ public class Normal implements State{
     Random random = new Random();
 
     //obtenerListaTributosDesdeElMain
-    ArrayList<Tributo> listaTributos = TributosMain();
-    Tributo tributoEnemigo = TributoAleatorio(listaTributos, jugador);
-    
+    //ArrayList<Tributo> listaTributos = HungerGames.listaTributos;
+
 
     public void atacar() {
-        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " se encontro con ");
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " se encontro con otro tributo");
         int num = random.nextInt(2) + 1;
 
             if (jugador instanceof Profesional) {
                 if(num==1){
-                    System.out.println(jugador.getNombre() + " ha ganado la batalla contra ");
+                    System.out.println(jugador.getNombre() + " ha ganado la batalla");
                 }else{
                     if (jugador.getVida() > 0) {
                         jugador.setVida(jugador.getVida() - 1);

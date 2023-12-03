@@ -4,8 +4,4 @@ public class Profesional extends Tributo{
         super(nombre, genero, distrito, vida, hambre, sed);
     }
 
-    public void buscarTributo(){
-
-    }
-
 }
