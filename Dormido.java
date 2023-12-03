@@ -4,9 +4,43 @@ import java.util.TimerTask;
 
 public class Dormido implements State{
 
-    public Tributo jugador;
+    private Tributo jugador;
     Random random = new Random();
-    
+
+    @Override
+    public void atacar(Tributo enemigo){
+    }
+
+    @Override
+    public void comer(){
+    }
+
+    @Override
+    public void curarse(){
+    }
+
+    @Override
+    public void defenderse(Tributo enemigo){
+    }
+
+    @Override
+    public void escapar(Tributo enemigo){
+    }
+
+    @Override
+    public void morir(){
+    }
+
+    @Override
+    public void sufrirEvento(){
+    }
+
+    @Override
+    public void setTributo(Tributo jugador){
+        this.jugador = jugador;
+    }
+
+    /*
     public void atacar() {
         int num = random.nextInt(2) + 1;
         
@@ -25,7 +59,7 @@ public class Dormido implements State{
 
     public void curarse() {
         System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " está dormido");
-        jugador.setState(new Normal());
+        //jugador.setState(new Normal());
     }
 
     public void defenderse() {
@@ -63,6 +97,8 @@ public class Dormido implements State{
             public void run() {
                 jugador.setState(new Normal());
             }
-        }, 10000);*/
+        }, 10000);
     }
+    */
+
 }

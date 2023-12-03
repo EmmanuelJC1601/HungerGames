@@ -1,12 +1,11 @@
 public interface State {
+    void atacar(Tributo enemigo);
+    void comer();
+    void curarse();
+    void defenderse(Tributo enemigo);
+    void escapar(Tributo enemigo);
+    void morir();
+    void sufrirEvento();
 
-    public void atacar();
-    public void comer();
-    public void curarse();
-    public void defenderse();
-    public void escapar();
-    public void morir();
-
-    public void setTributo(Tributo jugador);
-    
+    void setTributo(Tributo jugador);
 }

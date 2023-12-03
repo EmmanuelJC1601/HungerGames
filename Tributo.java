@@ -6,9 +6,9 @@ public class Tributo {
     private String nombre;
     private String genero;
     private int distrito;
-    private int vida;
-    private int hambre;
-    private int sed;
+    private int vida=3;
+    private int hambre=3;
+    private int sed=3;
 
     // private String arma;
     // private String ubicacion;
@@ -85,6 +85,38 @@ public class Tributo {
     // }
 
     // Métodos
+
+    public void atacar(Tributo enemigo){
+        this.estado.atacar(enemigo);
+    }
+
+    
+    public void comer(){
+        this.estado.comer();
+    }
+
+    
+    public void curarse(){
+        this.estado.curarse();
+    }
+
+    
+    public void defenderse(Tributo enemigo){
+        this.estado.defenderse(enemigo);
+    }
+
+    
+    public void escapar(Tributo enemigo){
+        this.estado.escapar(enemigo);
+    }
+
+    
+    public void morir(){
+        this.estado.morir();
+    }
+
+    /* 
+
     public void seleccionarEvento(){
         Random evento = new Random(123);
         int num_evento = evento.nextInt(1,6);
@@ -116,5 +148,6 @@ public class Tributo {
         }
 
     }
+    */
 }
 

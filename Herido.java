@@ -2,6 +2,43 @@ import java.util.Random;
 
 public class Herido implements State{
     
+
+    private Tributo jugador;
+    Random random = new Random();
+
+    @Override
+    public void atacar(Tributo enemigo){
+    }
+
+    @Override
+    public void comer(){
+    }
+
+    @Override
+    public void curarse(){
+    }
+
+    @Override
+    public void defenderse(Tributo enemigo){
+    }
+
+    @Override
+    public void escapar(Tributo enemigo){
+    }
+
+    @Override
+    public void morir(){
+    }
+
+    @Override
+    public void sufrirEvento(){
+    }
+
+    @Override
+    public void setTributo(Tributo jugador){
+        this.jugador = jugador;
+    }
+    /* 
     public Tributo jugador;
     Random random = new Random();
     
@@ -44,5 +81,5 @@ public class Herido implements State{
     public void setTributo(Tributo jugador){
         this.jugador = jugador;
     }
-
+    */
 }
