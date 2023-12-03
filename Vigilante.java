@@ -12,23 +12,25 @@ public class Vigilante {
 
         Random random = new Random();
 
-        System.out.println("-- Iniciando cosecha --");
+        System.out.println("\n<---><---><---><---| Iniciando la Cosecha |---><---><---><--->\n");
 
         for (int i = 1; i < 13; i++) {
             int num = random.nextInt(13 - i);
 
-            System.out.println("\n-- Distrito: " + i + " --");
-            
+            //System.out.println("\n-- Distrito: " + i + " --");
+            System.out.print("Representando al Distrito " + i);
+
             String mujer = mujeres.get(num);
             nombreMujeres.add(mujer);
-            System.out.println("Mujer: " + mujer);
+            System.out.print(" tenemos a " + mujer);
+            //System.out.println("Mujer: " + mujer);
             mujeres.remove(num);
 
             String hombre = hombres.get(num);
             nombreHombres.add(hombre);
-            System.out.println("Hombre: " + hombre);
+            System.out.println(" y a " + hombre + "\n");
+            //System.out.println("Hombre: " + hombre);
             hombres.remove(num);
-
         }
 
         tributosGenero.put("mujeres", nombreMujeres);
