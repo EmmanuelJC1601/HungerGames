@@ -7,7 +7,6 @@ public class HungerGames {
         Scanner scanner = new Scanner(System.in);
         //NameTributos.crearTributos();
         Vigilante laCosecha = new Vigilante();
-        laCosecha.cosecha();
 
         Map<String, ArrayList<String>> listasTributos = laCosecha.cosecha();
         ArrayList<String> mujeres = listasTributos.get("mujeres");
