@@ -19,7 +19,7 @@ public class Normal implements State{
     public void comer(){
         int num = random.nextInt(2) + 1;
         System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " decidio ir a buscar comida");
-        if(num==1){
+        if(num == 1){
             System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " consiguio comida");
         }
         else{

@@ -17,8 +17,8 @@ public class HungerGames {
         int opcion = 0;
 
         System.out.println("<---><---><---><---><---| Vigilante |---><---><---><---><--->\n");
-        System.out.println("Usted es un Vigilante, eso quiere dicir que vera");
-        System.out.println("como iran desarollandose los juegos.");
+        System.out.println("Usted es un Vigilante, eso quiere dicir que vera como iran");
+        System.out.println("desarollandose los juegos.\n");
 
 
         /* 

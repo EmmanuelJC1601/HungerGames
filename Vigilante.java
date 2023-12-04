@@ -22,10 +22,10 @@ public class Vigilante {
 
         int numeroJuegos = random.nextInt(24) + 51; // Números aleatorios entre 51 y 74
         System.out.printf("... .... ... Bienvenido a los %d° juegos del hambre ... .... ...\n", numeroJuegos);
-        System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
+        System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.");
 
         for (int i = 1; i < 13; i++) {
-            System.out.println("Del Distrito " + i);
+            System.out.println("\nDel Distrito " + i);
             System.out.println("Las mujeres primero, como siempre ha sido:  "+ mujeres.get(i-1));
             System.out.println("Y ahora el varon: "+hombres.get(i-1));
 

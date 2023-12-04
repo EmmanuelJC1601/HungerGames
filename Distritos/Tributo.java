@@ -11,7 +11,7 @@ public class Tributo {
     private String genero;
     private int distrito;
     //private int vida=3;
-    private int hambre=3;
+    private int hambre = 3;
     //private int sed=3;
 
     // private String arma;
