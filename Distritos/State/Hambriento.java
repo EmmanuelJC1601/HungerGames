@@ -14,6 +14,12 @@ public class Hambriento implements State{
     }
 
     @Override
+    public void sobrevivir(){
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " debe comer pronto o morira.");
+        comer();
+    }
+
+    @Override
     public void comer(){
         int num = random.nextInt(2) + 1;
         System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " decidio ir a buscar comida");
@@ -41,7 +47,7 @@ public class Hambriento implements State{
     @Override
     public void defenderse(Tributo enemigo){
         int num = random.nextInt(4) + 1;
-        if (enemigo instanceof Profesional) {
+        if (enemigo instanceof Profesional && jugador instanceof Profesional) {
             System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sido traicionado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
         }
         else {
@@ -83,6 +89,7 @@ public class Hambriento implements State{
 
     @Override
     public void sufrirEvento(){
+        System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sufrido el evento: ");
     }
 
     @Override

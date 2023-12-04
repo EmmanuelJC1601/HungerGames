@@ -1,13 +1,143 @@
-
-
 import java.io.*;
 import java.util.*;
 
 import Capitolio.TributoFactoryImplements;
 import Distritos.Profesional;
 import Distritos.Tributo;
+import Distritos.State.Hambriento;
+import Distritos.State.Herido;
+import Distritos.State.Muerto;
+import Distritos.State.Normal;
 
 public class Vigilante {
+
+    public void presentacion(){
+        System.out.println("Considerando la insurreccion y desafio a la autoridad del Capitolio\n"+
+                            "(no se entregaron la practicas a tiempo), se emite este decreto \n"+
+                            "inaugural con el fin de establecer un recordatorio permanente de \n"+
+                            "las consecuencias de cualquier intento de rebelion. Como todos los semestres\n"+
+                            "se realiza otra emision de los juegos del hambre (entrega de calificaciones).\n\n"+
+                            "\tPor orden y autoridad del Capitolio\n\tPresidente Edgar Tista Garcia\n\t"+
+                            "Panem hoy, Panem mañana y Panem para siempre\n");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void inicioJuegos(ArrayList<Tributo> juegos_del_hambre){
+        ArrayList<Tributo> fallecidos= new ArrayList<>();
+        Random random = new Random();
+        //int muertos = 0;
+        int num=0;
+        boolean muerto;
+
+        System.out.println("<---><---><---><---><---| Inician los juegos |---><---><---><---><--->\n");
+        System.out.println("Usted es un Vigilante, eso quiere decir que podra");
+        System.out.println("manejar el desarrollo de los juegos.\n");
+
+        System.out.println("DAN COMIENZO LOS JUEGOS DEL HAMBRE.\n");
+
+        while (true) {
+            for (Tributo tributo : juegos_del_hambre) {
+                if (tributo.getState() instanceof Muerto);
+                else{
+                    int accion = random.nextInt(4) + 1;
+                    switch (accion) {
+                        case 1:
+                            if (tributo instanceof Profesional){
+                                do{
+                                    num=random.nextInt(juegos_del_hambre.size());
+                                    muerto=(juegos_del_hambre.get(num).getState() instanceof Muerto);
+                                }while((tributo==juegos_del_hambre.get(num)) && (muerto!=true));
+                                ((Profesional)tributo).atacar(juegos_del_hambre.get(num));
+                            }
+                            else{
+                                tributo.sobrevivir();
+                            }
+                            break;
+                        case 2:
+                            tributo.comer();
+                            break;
+                        case 3:
+                            tributo.curarse();
+                            break;
+                        case 4:
+                            tributo.sufrirEvento();
+                            evento(tributo);
+                            break;
+                        default:
+                            System.out.println("Tributo Paseando");
+                            break;
+                    }
+                }
+            }
+            
+            
+            for (Tributo tributo : juegos_del_hambre) {
+                if (tributo.getState() instanceof Muerto) {
+                    fallecidos.add(tributo);
+                }
+            }
+
+            for (Tributo tributo : fallecidos) {
+                juegos_del_hambre.remove(tributo);
+            }
+
+            System.out.println("\nQuedan "+(juegos_del_hambre.size())+" tributos vivos");
+            //System.out.println("\nQuiere ejecutar un evento? ");
+            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if ((juegos_del_hambre.size()) < 2) {
+                break;
+            }
+        }
+    }
+
+    public void victoria(Tributo tributo){
+        System.out.println("\n\tEl tributo ganador es "+tributo.getNombre()+
+        "\n\tPerteneciente al distrito "+tributo.getDistrito());
+        guardarGanadores(tributo);
+        System.out.println("\n\t"+tributo.getNombre()+
+        "\n\tse une a la lista de vencedores\n");
+        verGanadores();
+    }
+    
+    public void guardarGanadores(Tributo tributo){
+        PrintWriter fileOut;
+        String vencedor = "Nombre: "+tributo.getNombre()+" Distrito: "+tributo.getDistrito()+ " Genero: "+tributo.getGenero();
+		try{
+			fileOut = new PrintWriter("vencedores.txt");
+            fileOut.println(vencedor);
+			fileOut.close();
+		}
+		catch (FileNotFoundException e){
+			System.out.println("Error: " + e.getMessage());
+		}
+    }
+
+    public void verGanadores(){
+        Scanner fileIn;
+        String line;
+        System.out.println("\n\tVencedores actuales:\n");
+        try {
+            fileIn = new Scanner(new FileReader("vencedores.txt"));
+            while (fileIn.hasNextLine()) {
+                line = fileIn.nextLine();
+                System.out.println(line);
+            }
+            fileIn.close();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+
+    }
 
     public ArrayList<Tributo> cosecha() {
         List<String> mujeres = leerNombresArchivo("nombresMujeres.txt");
@@ -22,10 +152,10 @@ public class Vigilante {
 
         int numeroJuegos = random.nextInt(24) + 51; // Números aleatorios entre 51 y 74
         System.out.printf("... .... ... Bienvenido a los %d° juegos del hambre ... .... ...\n", numeroJuegos);
-        System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.");
+        System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
 
         for (int i = 1; i < 13; i++) {
-            System.out.println("\nDel Distrito " + i);
+            System.out.println("Del Distrito " + i);
             System.out.println("Las mujeres primero, como siempre ha sido:  "+ mujeres.get(i-1));
             System.out.println("Y ahora el varon: "+hombres.get(i-1));
 
@@ -41,8 +171,46 @@ public class Vigilante {
                 hunger_games.add(tributoHombre);
             }
         }
-        System.out.println("\nLes deseamos felices juegos del hambre y que la suerte esté \nsiempre de su lado\n");
+        System.out.println("Les deseamos felices juegos del hambre y que la suerte esté siempre de su lado\n");
 
+        return hunger_games;
+    }
+
+    public ArrayList<Tributo> cosechaManual() {
+        ArrayList<Tributo> hunger_games = new ArrayList<Tributo>();
+        TributoFactoryImplements tributoFactory = new TributoFactoryImplements();
+        Random random = new Random();
+        String tributoM;
+        String tributoH;
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("\n<---><---><---><---| Iniciando la Cosecha |---><---><---><--->\n");
+
+        int numeroJuegos = random.nextInt(24) + 51; // Números aleatorios entre 51 y 74
+        System.out.printf("... .... ... Bienvenido a los %d° juegos del hambre ... .... ...\n", numeroJuegos);
+        System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
+
+        for (int i = 1; i < 13; i++) {
+            System.out.println("Registra los tributos Del Distrito " + i);
+            System.out.print("Las mujeres primero, como siempre ha sido:  ");
+            tributoM = input.nextLine();
+            System.out.print("Y ahora el varon: ");
+            tributoH = input.nextLine();
+
+            if(i==1 || i ==2 || i==4){
+                Profesional profesional_F = tributoFactory.crearProfesional(tributoM, "Femenino", i, 3);
+                Profesional profesional_M = tributoFactory.crearProfesional(tributoH, "Masculino", i, 3);
+                hunger_games.add(profesional_F);
+                hunger_games.add(profesional_M);
+            }else{
+                Tributo tributoMujer = tributoFactory.crearTributo(tributoM, "Femenino", i, 3);
+                Tributo tributoHombre = tributoFactory.crearTributo(tributoH, "Masculino", i, 3);
+                hunger_games.add(tributoMujer);
+                hunger_games.add(tributoHombre);
+            }
+        }
+        System.out.println("Les deseamos felices juegos del hambre y que la suerte esté siempre de su lado\n");
         return hunger_games;
     }
 
@@ -60,27 +228,106 @@ public class Vigilante {
         return tributos;
     }
 
-    public void donacion() {
-        // Implementación según sea necesario
+    public void evento(Tributo tributo) {
+        Random random = new Random();
+        int event = random.nextInt(6)+1;
+        switch (event) {
+            case 1:
+                donacion(tributo);
+                break;
+            case 2:
+                mutos(tributo);
+                break;
+            case 3:
+                incendio(tributo);
+                break;
+            case 4:
+                tormenta(tributo);
+                break;
+            case 5:
+                nieblaAcida(tributo);
+                break;
+            case 6:
+                lluviaSangre(tributo);
+                break;
+            default:
+                System.out.println("Ha pasado algo en la arena");
+                break;
+        }
     }
 
-    public void mutos() {
-        // Implementación según sea necesario
+    public void donacion(Tributo tributo) {
+        if (tributo.getState() instanceof Normal){
+            System.out.println("Ha recibido un arma por patrocinadores");
+        }
+        else if (tributo.getState() instanceof Hambriento){
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " ha comido gracias a un patrocinador.");
+            tributo.setState(new Normal());
+        }
+        else if (tributo.getState() instanceof Herido){
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " se ha curado gracias a un patrocinador.");
+            tributo.setState(new Normal());
+        }
+        else{
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " fue despertado por el patrocinador.");
+            tributo.setState(new Normal());
+        }
     }
 
-    public void incendio() {
-        // Implementación según sea necesario
+    public void mutos(Tributo tributo) {
+        if (tributo.getState() instanceof Normal){
+            System.out.println("Fue atacado por mutos, se encuentra herido");
+            tributo.setState(new Herido());
+        }
+        else{
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " no pudo huir de los mutos.");
+            tributo.setState(new Muerto());
+            tributo.morir();
+        }
     }
 
-    public void tormenta() {
-        // Implementación según sea necesario
+    public void incendio(Tributo tributo) {
+        if (tributo.getState() instanceof Normal){
+            System.out.println("Sufrio quemaduras escapando del incendio, se encuentra herido");
+            tributo.setState(new Herido());
+        }
+        else{
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " no pudo huir del fuego.");
+            tributo.setState(new Muerto());
+            tributo.morir();
+        }
     }
 
-    public void nieblaAcida() {
-        // Implementación según sea necesario
+    public void tormenta(Tributo tributo) {
+        if (tributo.getState() instanceof Normal){
+            System.out.println("Fue afectado por la lluvia, se encuentra hambriento");
+            tributo.setState(new Hambriento());
+        }
+        else{
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " le impacto un rayo cerca, esta herido");
+            tributo.setState(new Herido());
+        }
     }
 
-    public void lluviaSangre() {
-        // Implementación según sea necesario
+    public void nieblaAcida(Tributo tributo) {
+        if (tributo.getState() instanceof Normal){
+            System.out.println("Pudo escapar de la niebla acida");
+            tributo.setState(new Herido());
+        }
+        else{
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " no pudo huir del fuego.");
+            tributo.setState(new Muerto());
+            tributo.morir();
+        }
+    }
+
+    public void lluviaSangre(Tributo tributo) {
+        if (tributo.getState() instanceof Normal){
+            System.out.println("Esta lleno de sangre pero es por la lluvia");
+        }
+        else{
+            System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " esta herido por el trauma de la sangre.");
+            tributo.setState(new Herido());
+        }
     }
 }

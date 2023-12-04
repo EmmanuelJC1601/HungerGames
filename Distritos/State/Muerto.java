@@ -10,6 +10,10 @@ public class Muerto implements State{
     }
 
     @Override
+    public void sobrevivir(){
+    }
+
+    @Override
     public void comer(){
     }
 

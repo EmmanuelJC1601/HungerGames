@@ -5,4 +5,8 @@ public class Profesional extends Tributo{
         super(nombre, genero, distrito, hambre);
     }
 
+    public void atacar(Tributo enemigo){
+        getState().atacar(enemigo);
+    }
+
 }

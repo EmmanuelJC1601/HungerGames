@@ -3,6 +3,7 @@ import Distritos.Tributo;
 
 public interface State {
     void atacar(Tributo enemigo);
+    void sobrevivir();
     void comer();
     void curarse();
     void defenderse(Tributo enemigo);
