@@ -1,7 +1,9 @@
-package Capitolio;
+
+
 import java.io.*;
 import java.util.*;
 
+import Capitolio.TributoFactoryImplements;
 import Distritos.Profesional;
 import Distritos.Tributo;
 
@@ -23,19 +25,18 @@ public class Vigilante {
         System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
 
         for (int i = 1; i < 13; i++) {
-            System.out.print("Del Distrito " + i);
-            System.out.print("Las mujeres primero, como siempre ha sido.  ");
-            System.out.println(" Tenemos a " + mujeres.get(i));  
-            System.out.println("Y ahora el varon: "+hombres.get(i));
+            System.out.println("Del Distrito " + i);
+            System.out.println("Las mujeres primero, como siempre ha sido:  "+ mujeres.get(i-1));
+            System.out.println("Y ahora el varon: "+hombres.get(i-1));
 
             if(i==1 || i ==2 || i==4){
-                Profesional profesional_F = tributoFactory.crearProfesional(mujeres.get(i), "Femenino", i, 3);
-                Profesional profesional_M = tributoFactory.crearProfesional(hombres.get(i), "Masculino", i, 3);
+                Profesional profesional_F = tributoFactory.crearProfesional(mujeres.get(i-1), "Femenino", i, 3);
+                Profesional profesional_M = tributoFactory.crearProfesional(hombres.get(i-1), "Masculino", i, 3);
                 hunger_games.add(profesional_F);
                 hunger_games.add(profesional_M);
             }else{
-                Tributo tributoMujer = tributoFactory.crearTributo(mujeres.get(i), "Femenino", i, 3);
-                Tributo tributoHombre = tributoFactory.crearTributo(hombres.get(i), "Masculino", i, 3);
+                Tributo tributoMujer = tributoFactory.crearTributo(mujeres.get(i-1), "Femenino", i, 3);
+                Tributo tributoHombre = tributoFactory.crearTributo(hombres.get(i-1), "Masculino", i, 3);
                 hunger_games.add(tributoMujer);
                 hunger_games.add(tributoHombre);
             }

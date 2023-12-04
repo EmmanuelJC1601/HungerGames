@@ -1,6 +1,6 @@
+
 import java.util.*;
 
-import Capitolio.Vigilante;
 import Distritos.Profesional;
 import Distritos.Tributo;
 import Distritos.State.Muerto;
@@ -10,8 +10,8 @@ public class HungerGames {
 
         Scanner scanner = new Scanner(System.in);
         Vigilante TistaCrane = new Vigilante();
-        Profesional Hard;
-        Tributo Easy;
+        //Profesional Hard;
+        //Tributo Easy;
 
         ArrayList<Tributo> juegos_del_hambre = TistaCrane.cosecha();
         int opcion = 0;
@@ -53,7 +53,7 @@ public class HungerGames {
         }*/
 
 
-        // NO EJECUTAR TODAVÍA
+        // NO EJECUTAR TODAViA
 
 
         // do {
