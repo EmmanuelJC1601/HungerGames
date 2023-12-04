@@ -1,9 +1,9 @@
-import java.util.Random;
+package Distritos.State;
+import Distritos.Tributo;
 
 public class Muerto implements State{
     
     private Tributo jugador;
-    Random random = new Random();
 
     @Override
     public void atacar(Tributo enemigo){
@@ -27,6 +27,7 @@ public class Muerto implements State{
 
     @Override
     public void morir(){
+        System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha muerto");
     }
 
     @Override
@@ -37,29 +38,4 @@ public class Muerto implements State{
     public void setTributo(Tributo jugador){
         this.jugador = jugador;
     }
-    /*
-    public Tributo jugador;
-    
-    public void atacar() {    
-    }
-
-    public void comer() {     
-    }
-
-    public void curarse() {    
-    }
-
-    public void defenderse() {    
-    }
-
-    public void escapar() {    
-    }
-
-    public void morir() {   
-    }
-    
-    public void setTributo(Tributo jugador){
-        this.jugador = jugador;
-    }
-    */
 }

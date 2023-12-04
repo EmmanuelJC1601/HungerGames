@@ -1,4 +1,8 @@
+package Distritos.State;
 import java.util.*;
+
+import Distritos.Profesional;
+import Distritos.Tributo;
 
 public class Normal implements State{
 
@@ -8,21 +12,31 @@ public class Normal implements State{
     @Override
     public void atacar(Tributo enemigo){
         System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ataca a "+enemigo.getNombre()+" del Distrito: " + jugador.getDistrito());
+        enemigo.defenderse(enemigo);
     }
 
     @Override
     public void comer(){
-        System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" se ha alimentado");
-        jugador.setHambre(3);
+        int num = random.nextInt(2) + 1;
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " decidio ir a buscar comida");
+        if(num==1){
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " consiguio comida");
+        }
+        else{
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " no encontro nada");
+            jugador.setState(new Hambriento());
+        }
     }
 
     @Override
     public void curarse(){
+        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " va a dormir");
+        jugador.setState(new Dormido());
     }
 
     @Override
     public void defenderse(Tributo enemigo){
-        int num = random.nextInt(3) + 1;
+        int num = random.nextInt(4) + 1;
         if (enemigo instanceof Profesional) {
             System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sido traicionado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
         }
@@ -33,6 +47,7 @@ public class Normal implements State{
             System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " logro asesinar a "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito()+", pero salió herido");
             jugador.setState(new Herido());
             enemigo.setState(new Muerto());
+            enemigo.morir();
         }
         else if(num==2){
             jugador.escapar(enemigo);
@@ -40,10 +55,12 @@ public class Normal implements State{
         else if(num==3){
             System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " logro asesinar a "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito()+" ileso");
             enemigo.setState(new Muerto());
+            enemigo.morir();
         }
         else{
             System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " fue asesinado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
             jugador.setState(new Muerto());
+            jugador.morir();
         }
     }
 

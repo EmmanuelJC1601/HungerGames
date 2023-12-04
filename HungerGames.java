@@ -1,20 +1,27 @@
 import java.util.*;
 
+import Capitolio.Vigilante;
+import Distritos.Profesional;
+import Distritos.Tributo;
+import Distritos.State.Muerto;
+
 public class HungerGames {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Vigilante TistaCraus = new Vigilante();
+        Vigilante TistaCrane = new Vigilante();
         Profesional Hard;
         Tributo Easy;
 
-        ArrayList<Tributo> juegos_del_hambre = TistaCraus.cosecha();
+        ArrayList<Tributo> juegos_del_hambre = TistaCrane.cosecha();
         int opcion = 0;
 
         System.out.println("<---><---><---><---><---| Vigilante |---><---><---><---><--->\n");
-        System.out.println("Usted es un Vigilante, eso quiere dicir que podrá controlar");
-        System.out.println("como se irá desarollandose los juegos.");
+        System.out.println("Usted es un Vigilante, eso quiere dicir que vera");
+        System.out.println("como iran desarollandose los juegos.");
 
+
+        /* 
         try {
             do {
                 Random random = new Random();
@@ -43,7 +50,7 @@ public class HungerGames {
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             //e.printStackTrace();
-        }
+        }*/
 
 
         // NO EJECUTAR TODAVÍA

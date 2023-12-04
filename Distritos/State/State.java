@@ -1,3 +1,6 @@
+package Distritos.State;
+import Distritos.Tributo;
+
 public interface State {
     void atacar(Tributo enemigo);
     void comer();

@@ -1,13 +1,15 @@
+package Capitolio;
 import java.io.*;
 import java.util.*;
+
+import Distritos.Profesional;
+import Distritos.Tributo;
 
 public class Vigilante {
 
     public ArrayList<Tributo> cosecha() {
         List<String> mujeres = leerNombresArchivo("nombresMujeres.txt");
         List<String> hombres = leerNombresArchivo("nombresHombres.txt");
-        ArrayList<String> nombreMujeres = new ArrayList<>();
-        ArrayList<String> nombreHombres = new ArrayList<>();
 
         ArrayList<Tributo> hunger_games = new ArrayList<Tributo>();
         TributoFactoryImplements tributoFactory = new TributoFactoryImplements();
@@ -16,36 +18,24 @@ public class Vigilante {
 
         System.out.println("\n<---><---><---><---| Iniciando la Cosecha |---><---><---><--->\n");
 
-        int numeroJuegos = random.nextInt(31) + 50; // Números aleatorios entre 50 y 80
+        int numeroJuegos = random.nextInt(24) + 51; // Números aleatorios entre 51 y 74
         System.out.printf("... .... ... Bienvenido a los %d° juegos del hambre ... .... ...\n", numeroJuegos);
-        System.out.println("\nEn este día más de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
+        System.out.println("\nEn este dia mas de cien mil espectadores y patrocinadores se \nhan reunido con tal de ver solo a los tributos.\n");
 
         for (int i = 1; i < 13; i++) {
-            int num = random.nextInt(13 - i);
-
-            //System.out.println("\n-- Distrito: " + i + " --");
-            System.out.print("Representando al Distrito " + i);
-
-            String mujer = mujeres.get(num);
-            nombreMujeres.add(mujer);
-            System.out.print(" tenemos a " + mujer);
-            //System.out.println("Mujer: " + mujer);
-            mujeres.remove(num);
-
-            String hombre = hombres.get(num);
-            nombreHombres.add(hombre);
-            System.out.println(" y a " + hombre + "\n");
-            //System.out.println("Hombre: " + hombre);
-            hombres.remove(num);
+            System.out.print("Del Distrito " + i);
+            System.out.print("Las mujeres primero, como siempre ha sido.  ");
+            System.out.println(" Tenemos a " + mujeres.get(i));  
+            System.out.println("Y ahora el varon: "+hombres.get(i));
 
             if(i==1 || i ==2 || i==4){
-                Profesional profesional_F = tributoFactory.crearProfesional(mujer, "Femenino", i, 100, 0, 0);
-                Profesional profesional_M = tributoFactory.crearProfesional(hombre, "Masculino", i, 3, 0, 0);
+                Profesional profesional_F = tributoFactory.crearProfesional(mujeres.get(i), "Femenino", i, 3);
+                Profesional profesional_M = tributoFactory.crearProfesional(hombres.get(i), "Masculino", i, 3);
                 hunger_games.add(profesional_F);
                 hunger_games.add(profesional_M);
             }else{
-                Tributo tributoMujer = tributoFactory.crearTributo(mujer, "Femenino", i, 3, 0, 0);
-                Tributo tributoHombre = tributoFactory.crearTributo(hombre, "Masculino", i, 3, 0, 0);
+                Tributo tributoMujer = tributoFactory.crearTributo(mujeres.get(i), "Femenino", i, 3);
+                Tributo tributoHombre = tributoFactory.crearTributo(hombres.get(i), "Masculino", i, 3);
                 hunger_games.add(tributoMujer);
                 hunger_games.add(tributoHombre);
             }

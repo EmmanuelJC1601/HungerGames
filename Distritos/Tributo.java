@@ -1,4 +1,8 @@
+package Distritos;
 import java.util.*;
+
+import Distritos.State.Normal;
+import Distritos.State.State;
 
 public class Tributo {
 
@@ -6,22 +10,22 @@ public class Tributo {
     private String nombre;
     private String genero;
     private int distrito;
-    private int vida=3;
+    //private int vida=3;
     private int hambre=3;
-    private int sed=3;
+    //private int sed=3;
 
     // private String arma;
     // private String ubicacion;
     // private int calificacion;
 
     // Constructor
-    public Tributo(String nombre, String genero, int distrito, int vida, int hambre, int sed) {
+    public Tributo(String nombre, String genero, int distrito, int hambre) {
         this.nombre = nombre;
         this.genero = genero;
         this.distrito = distrito;
-        this.vida = vida;
+        //this.vida = vida;
         this.hambre = hambre;
-        this.sed = sed;
+        //this.sed = sed;
         setState(new Normal());
     }
 
@@ -43,14 +47,14 @@ public class Tributo {
     public int getDistrito() {
         return distrito;
     }
-
+    /* 
     public int getVida() {
         return vida;
-    }
-
+    }*/
+    /*
     public void setVida(int vida) {
         this.vida = vida;
-    }
+    }*/
 
     public int getHambre() {
         return hambre;
@@ -59,14 +63,14 @@ public class Tributo {
     public void setHambre(int hambre) {
         this.hambre = hambre;
     }
-
+    /*
     public int getSed() {
         return sed;
     }
 
     public void setSed(int sed) {
         this.sed = sed;
-    }
+    }*/
 
     public State getState(){
         return this.estado;
