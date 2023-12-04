@@ -11,8 +11,10 @@ public class Normal implements State{
 
     @Override
     public void atacar(Tributo enemigo){
+        //setTributo(actual);
         System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ataca a "+enemigo.getNombre()+" del Distrito: " + jugador.getDistrito());
-        enemigo.defenderse(enemigo);
+        //enemigo.defenderse(enemigo);
+        enemigo.defenderse(jugador);
     }
 
     @Override

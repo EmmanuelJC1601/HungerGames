@@ -91,6 +91,7 @@ public class Tributo {
     // Métodos
 
     public void atacar(Tributo enemigo){
+        this.estado.setTributo(this);
         this.estado.atacar(enemigo);
     }
 
@@ -119,6 +120,25 @@ public class Tributo {
         this.estado.morir();
     }
 
+    public void accion(Tributo enemigo){
+        int num_accion = new Random(123).nextInt(1,9);
+
+        if(num_accion == 1 || num_accion == 2 || num_accion == 3){
+            this.atacar(enemigo);
+        }
+        // if(num_accion == 4){
+        //     this.comer();
+        // }
+        // if(num_accion == 5){
+        //     this.curarse();
+        // }
+        // if(num_accion == 6 || num_accion == 7){
+        //     this.defenderse(enemigo);
+        // }
+        // if(num_accion == 8){
+        //     this.escapar(enemigo);
+        // }
+    }
     /* 
 
     public void seleccionarEvento(){
