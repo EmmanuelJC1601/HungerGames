@@ -41,7 +41,7 @@ public class Vigilante {
                 hunger_games.add(tributoHombre);
             }
         }
-        System.out.println("Les deseamos felices juegos del hambre y que la suerte esté siempre de su lado\n");
+        System.out.println("\nLes deseamos felices juegos del hambre y que la suerte esté \nsiempre de su lado\n");
 
         return hunger_games;
     }
