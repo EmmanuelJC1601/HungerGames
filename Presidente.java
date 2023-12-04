@@ -36,6 +36,7 @@ public class Presidente extends Vigilante {
             }
             } catch (InputMismatchException e) {
                 System.out.println("Opcion Invalida. Intenta otra vez");
+                scanner.nextLine();
             }
         } while (op!=1 && op!=2);
     }
