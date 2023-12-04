@@ -1,0 +1,4 @@
+Nombre: Silvana Distrito: 5 Genero: Femenino
+Nombre: Alfonso Distrito: 11 Genero: Masculino
+Nombre: Peeta Distrito: 12 Genero: Masculino
+Nombre: Camila Distrito: 9 Genero: Femenino

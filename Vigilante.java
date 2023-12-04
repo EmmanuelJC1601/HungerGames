@@ -29,15 +29,34 @@ public class Vigilante {
     public void inicioJuegos(ArrayList<Tributo> juegos_del_hambre){
         ArrayList<Tributo> fallecidos= new ArrayList<>();
         Random random = new Random();
-        //int muertos = 0;
         int num=0;
         boolean muerto;
 
-        System.out.println("<---><---><---><---><---| Inician los juegos |---><---><---><---><--->\n");
-        System.out.println("Usted es un Vigilante, eso quiere decir que podra");
-        System.out.println("manejar el desarrollo de los juegos.\n");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        System.out.println("DAN COMIENZO LOS JUEGOS DEL HAMBRE.\n");
+        System.out.println("<---><---><---><---><---| Inician los juegos |---><---><---><---><--->\n");
+        
+        if(this instanceof Presidente){
+            System.out.println("Usted es el Presidente, eso quiere decir que podra");
+            System.out.println("manipular el desarrollo de los juegos.\n");
+        }
+        else{
+            System.out.println("Usted es un Espectador, eso quiere decir que podra");
+            System.out.println("ver el desarrollo de los juegos.\n");
+        }
+        
+
+        System.out.println("\nDAN COMIENZO LOS JUEGOS DEL HAMBRE.\n");
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         while (true) {
             for (Tributo tributo : juegos_del_hambre) {
@@ -74,7 +93,6 @@ public class Vigilante {
                 }
             }
             
-            
             for (Tributo tributo : juegos_del_hambre) {
                 if (tributo.getState() instanceof Muerto) {
                     fallecidos.add(tributo);
@@ -85,16 +103,19 @@ public class Vigilante {
                 juegos_del_hambre.remove(tributo);
             }
 
-            System.out.println("\nQuedan "+(juegos_del_hambre.size())+" tributos vivos");
-            //System.out.println("\nQuiere ejecutar un evento? ");
-            
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.println("\nQuedan "+(juegos_del_hambre.size())+" tributos vivos\n");
             if ((juegos_del_hambre.size()) < 2) {
                 break;
+            }
+            if(this instanceof Presidente){
+                ((Presidente)this).ejecutarEvento(juegos_del_hambre);
+            }
+            else{
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -104,7 +125,7 @@ public class Vigilante {
         "\n\tPerteneciente al distrito "+tributo.getDistrito());
         guardarGanadores(tributo);
         System.out.println("\n\t"+tributo.getNombre()+
-        "\n\tse une a la lista de vencedores\n");
+        " se une a la lista de vencedores\n");
         verGanadores();
     }
     
@@ -112,11 +133,14 @@ public class Vigilante {
         PrintWriter fileOut;
         String vencedor = "Nombre: "+tributo.getNombre()+" Distrito: "+tributo.getDistrito()+ " Genero: "+tributo.getGenero();
 		try{
-			fileOut = new PrintWriter("vencedores.txt");
+			fileOut = new PrintWriter(new FileWriter("vencedores.txt", true));
             fileOut.println(vencedor);
 			fileOut.close();
 		}
 		catch (FileNotFoundException e){
+			System.out.println("Error: " + e.getMessage());
+		}
+        catch (IOException e){
 			System.out.println("Error: " + e.getMessage());
 		}
     }
@@ -139,7 +163,33 @@ public class Vigilante {
 
     }
 
-    public ArrayList<Tributo> cosecha() {
+    public ArrayList<Tributo> cosecha(){
+        int op=0;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("<---> Como se hara la cosecha <--->\n");
+            System.out.println("1. Manual");
+            System.out.println("2. Automatica (con archivos)");
+            System.out.print("> Opcion: ");
+            try{
+                op = scanner.nextInt();
+                switch (op) {
+                case 1:
+                    return cosechaManual();
+                case 2:
+                    return cosechaAutomatica();
+                default:
+                    System.out.println("Opcion Invalida. Intenta otra vez");
+                    break;
+            }
+            } catch (InputMismatchException e) {
+                System.out.println("Opcion Invalida. Intenta otra vez");
+            }
+        } while (op!=1 && op!=2);
+        return null;
+    }
+
+    public ArrayList<Tributo> cosechaAutomatica() {
         List<String> mujeres = leerNombresArchivo("nombresMujeres.txt");
         List<String> hombres = leerNombresArchivo("nombresHombres.txt");
 
