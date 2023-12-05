@@ -67,7 +67,7 @@ public class Dormido implements State{
     @Override
     public void defenderse(Tributo enemigo){
         try {
-            if (enemigo instanceof Profesional) {
+            if (enemigo instanceof Profesional && jugador instanceof Profesional) {
                 Thread.sleep(2000);
                 System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sido traicionado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
                 Thread.sleep(2000);

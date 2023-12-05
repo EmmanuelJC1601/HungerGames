@@ -61,7 +61,7 @@ public class Herido implements State{
     public void defenderse(Tributo enemigo){
         int num = random.nextInt(4) + 1;
         try {
-            if (enemigo instanceof Profesional) {
+            if (enemigo instanceof Profesional && jugador instanceof Profesional) {
                 Thread.sleep(2000);
                 System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sido traicionado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
             }

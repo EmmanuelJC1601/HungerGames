@@ -408,7 +408,7 @@ public class Vigilante {
             }
             else{
                 Thread.sleep(2000);
-                System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " no pudo huir del fuego.");
+                System.out.println(tributo.getNombre() + " del Distrito: " + tributo.getDistrito() + " no pudo huir de la niebla acida.");
                 tributo.setState(new Muerto());
                 tributo.morir();
             }
