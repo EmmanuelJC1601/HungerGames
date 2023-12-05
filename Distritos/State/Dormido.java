@@ -42,6 +42,7 @@ public class Dormido implements State{
             if(num==1){
                 Thread.sleep(2000);
                 System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " consiguio comida");
+                jugador.setState(new Normal());
             }
             else{
                 Thread.sleep(2000);
