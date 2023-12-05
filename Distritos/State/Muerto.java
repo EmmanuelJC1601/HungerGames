@@ -31,7 +31,12 @@ public class Muerto implements State{
 
     @Override
     public void morir(){
-        System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha muerto");
+        try {
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha muerto");
+        } catch (InterruptedException e) {
+            // TODO: handle exception
+        }
     }
 
     @Override

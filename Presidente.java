@@ -15,6 +15,7 @@ public class Presidente extends Vigilante {
             System.out.print("> Opcion: ");
             try{
                 op = scanner.nextInt();
+                System.out.println();
                 switch (op) {
                 case 1:
                     int num=random.nextInt(juegos_del_hambre.size());

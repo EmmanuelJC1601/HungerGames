@@ -13,48 +13,76 @@ public class Dormido implements State{
 
     @Override
     public void atacar(Tributo enemigo){
-        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
-        jugador.setState(new Normal());
+        try {
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
+            jugador.setState(new Normal());
+        } catch (InterruptedException e) {
+            // NADA
+        }
     }
 
     @Override
     public void sobrevivir(){
-        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
-        jugador.setState(new Normal());
+        try {
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
+            jugador.setState(new Normal());
+        } catch (InterruptedException e) {
+            // TODO: handle exception
+        }
     }
 
     @Override
     public void comer(){
         int num = random.nextInt(2) + 1;
-        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " decidio ir a buscar comida");
-        if(num==1){
-            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " consiguio comida");
-            jugador.setState(new Normal());
-        }
-        else{
-            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " no encontro nada");
-            jugador.setState(new Hambriento());
+        try {
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " decidio ir a buscar comida");
+            if(num==1){
+                Thread.sleep(2000);
+                System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " consiguio comida");
+            }
+            else{
+                Thread.sleep(2000);
+                System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " no encontro nada");
+                jugador.setState(new Hambriento());
+            }
+        } catch (InterruptedException e) {
+            // NADA
         }
     }
 
     @Override
     public void curarse(){
-        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
-        jugador.setState(new Normal());
+        try {
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
+            jugador.setState(new Normal());
+        } catch (InterruptedException e) {
+            // TODO: handle exception
+        }
     }
 
     @Override
     public void defenderse(Tributo enemigo){
-        if (enemigo instanceof Profesional && jugador instanceof Profesional) {
-            System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sido traicionado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
-            System.out.println(enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito()+" asesino a "+jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " mientras dormia ");
-            jugador.setState(new Muerto());
-            jugador.morir();
-        }
-        else {
-            System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" fue asesinado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito()+" mientras dormia");
-            jugador.setState(new Muerto());
-            jugador.morir();
+        try {
+            if (enemigo instanceof Profesional) {
+                Thread.sleep(2000);
+                System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sido traicionado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito());
+                Thread.sleep(2000);
+                System.out.println(enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito()+" asesino a "+jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " mientras dormia ");
+                jugador.setState(new Muerto());
+                jugador.morir();
+            }
+            else {
+                Thread.sleep(2000);
+                System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" fue asesinado por "+enemigo.getNombre()+" del Distrito: " + enemigo.getDistrito()+" mientras dormia");
+                jugador.setState(new Muerto());
+                jugador.morir();
+            }
+        } catch (InterruptedException e) {
+            // NADA
         }
     }
 
@@ -68,27 +96,18 @@ public class Dormido implements State{
 
     @Override
     public void sufrirEvento(){
-        System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
-        System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sufrido el evento: ");
+        try {
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre() + " del Distrito: " + jugador.getDistrito() + " ha despertado");
+            Thread.sleep(2000);
+            System.out.println(jugador.getNombre()+" del Distrito: " + jugador.getDistrito()+" ha sufrido el evento: ");
+        } catch (InterruptedException e) {
+            // TODO: handle exception
+        }
     }
 
     @Override
     public void setTributo(Tributo jugador){
         this.jugador = jugador;
     }
-
-    /*
-
-    public void setTributo(Tributo jugador) {
-        this.jugador = jugador;
-
-        /*Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            public void run() {
-                jugador.setState(new Normal());
-            }
-        }, 10000);
-    }
-    */
-
 }
